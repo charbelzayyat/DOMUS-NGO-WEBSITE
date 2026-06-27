@@ -1,0 +1,735 @@
+:root {
+    --primary: #6d5bd0;     /* soft purple (identity / DOMUS feel) */
+    --secondary: #cb8fdc;   /* light lavender (soft support tone) */
+    --accent: #f6ad55;      /* warm donation / hope color */
+    --text: #2d3748;        /* clean readable text */
+    --bg: #f4f7fb;          /* soft background */
+}
+body {
+    font-family: Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+}
+.navbar {
+    background: #ffffff;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    border-bottom: 1px solid #eeeeee;
+}
+
+/* BRAND (DOMUS NGO) — MAKE IT STRONG & CLEAR */
+.navbar-brand {
+    font-weight: 500;
+    font-size: 1.1rem;
+    color: #ffffff !important; /* strong dark for visibility */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* NAV LINKS — CLEAR + READABLE */
+.navbar .nav-link {
+    color: rgba(255, 255, 255, 0.75) !important; /* soft dark grey */
+    font-weight: 500;
+    margin-left: 15px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    transition: 0.25s ease;
+}
+
+/* HOVER — MAKE IT OBVIOUS */
+.navbar .nav-link:hover {
+    color: #5c53a3 !important;
+    background: rgba(92,83,163,0.08);
+}
+
+/* ACTIVE PAGE — VERY CLEAR */
+.navbar .nav-link.active {
+    color: #ffffff !important;
+    background: #5c53a3;
+}
+
+/* OPTIONAL: make active feel like a button */
+.navbar .nav-link.active:hover {
+    background: #463e82;
+}
+.announcement {
+    background: linear-gradient(90deg, var(--secondary), var(--accent));
+    color: #1d1d1d;
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+.hero {
+
+    min-height: 90vh;
+
+    background:
+        linear-gradient(rgba(0, 0, 0, .6),
+            rgba(0, 0, 0, .6)),
+        url("../images/gathering.jpeg");
+
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+    text-align: center;
+}
+
+.hero-logo {
+
+    width: 150px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    padding: 10px;
+
+    margin-bottom: 20px;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, .4);
+}
+
+.hero h1 {
+
+    font-size: 4rem;
+
+    font-weight: bold;
+
+    margin-bottom: 20px;
+}
+
+.hero h3 {
+
+    color: #ffc107;
+
+    margin-bottom: 20px;
+}
+
+.hero p {
+
+    max-width: 800px;
+
+    margin: auto;
+
+    font-size: 1.2rem;
+}
+
+.card {
+
+    border: none;
+
+    border-radius: 20px;
+
+    transition: .4s;
+}
+
+.card:hover {
+
+    transform: translateY(-10px);
+
+    box-shadow: 0 15px 30px rgba(0, 0, 0, .2);
+}
+
+.card i {
+
+    color: #0d6efd;
+
+    margin-bottom: 20px;
+}
+.footer {
+    background: linear-gradient(135deg, #ffffff, #f4f7fb);
+    color: #2d3748;
+    text-align: center;
+    padding: 50px 20px;
+    border-top: 1px solid #e2e8f0;
+}
+
+.footer p {
+    margin: 10px 0;
+    font-size: 1rem;
+}
+
+/* Social icons container */
+.footer .social-icons {
+    margin: 20px 0;
+}
+
+/* Icon buttons */
+.footer .social-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 45px;
+    height: 45px;
+
+    margin: 0 8px;
+
+    border-radius: 50%;
+
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+
+    transition: 0.3s ease;
+}
+
+/* Icons */
+.footer .social-icons img {
+    width: 22px;
+    height: 22px;
+}
+
+/* Hover effect */
+.footer .social-icons a:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 8px 20px rgba(43,108,176,0.2);
+}
+
+/* Small highlight text */
+.footer p:last-child {
+    color: #718096;
+    font-size: 0.9rem;
+}
+
+@media(max-width:768px) {
+
+    .hero h1 {
+
+        font-size: 2.5rem;
+    }
+
+    .hero-logo {
+
+        width: 100px;
+    }
+
+}
+/* ABOUT PAGE */
+
+.about-hero{
+
+    height:70vh;
+
+    background:
+    linear-gradient(rgba(0,0,0,.55),
+    rgba(0,0,0,.55)),
+    url("../images/gathering.jpeg");
+
+    background-size:cover;
+    background-position:center;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:white;
+}
+
+.about-logo{
+
+    width:140px;
+
+    background:white;
+
+    padding:10px;
+
+    border-radius:50%;
+
+    margin-bottom:20px;
+
+    box-shadow:0 5px 20px rgba(0,0,0,.4);
+}
+
+.about-hero h1{
+
+    font-size:4rem;
+
+    font-weight:bold;
+}
+
+.about-hero p{
+
+    max-width:700px;
+
+    margin:auto;
+
+    font-size:1.2rem;
+}
+
+.domus-section{
+
+    background:#f8f9fa;
+
+    padding:80px 20px;
+}
+
+.domus-container{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:25px;
+
+    flex-wrap:wrap;
+
+    margin-top:40px;
+}
+
+.domus-card{
+
+    width:150px;
+
+    height:150px;
+
+    background:white;
+
+    border-radius:20px;
+
+    box-shadow:0 5px 20px rgba(0,0,0,.15);
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:2.5rem;
+
+    font-weight:bold;
+
+    transition:0.4s;
+}
+
+.domus-card span{
+
+    font-size:1rem;
+
+    margin-top:10px;
+}
+
+.domus-card:hover{
+
+    transform:translateY(-10px);
+
+    background:#ffc107;
+}
+
+.value-card{
+
+    padding:30px;
+
+    text-align:center;
+
+    border-radius:20px;
+
+    background:white;
+
+    box-shadow:0 5px 20px rgba(0,0,0,.1);
+
+    transition:0.3s;
+}
+
+.value-card:hover{
+
+    transform:translateY(-10px);
+}
+
+.value-card i{
+
+    color:#0d6efd;
+
+    margin-bottom:20px;
+}
+
+.volunteer-section{
+
+    padding:80px 0;
+}
+
+@media(max-width:768px){
+
+    .about-hero h1{
+
+        font-size:2.5rem;
+    }
+
+}
+/* ACTIVITIES PAGE */
+
+.activities-hero{
+
+    height:60vh;
+
+    background:
+    linear-gradient(rgba(0,0,0,.6),
+    rgba(0,0,0,.6)),
+    url("../images/food distributing.jpeg");
+
+    background-size:cover;
+    background-position:center;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    color:white;
+}
+
+.activities-hero h1{
+
+    font-size:4rem;
+
+    font-weight:bold;
+}
+
+.activities-hero p{
+
+    max-width:700px;
+
+    margin:auto;
+
+    font-size:1.2rem;
+}
+
+.card-img-top{
+
+    height:250px;
+
+    object-fit:cover;
+}
+/* CONTACT PAGE */
+
+.contact-hero {
+
+    height: 60vh;
+
+    background:
+        linear-gradient(rgba(0,0,0,.6),
+        rgba(0,0,0,.6)),
+        url("../images/christmas ceremony.jpeg");
+
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+    text-align: center;
+}
+
+.contact-hero h1 {
+
+    font-size: 4rem;
+    font-weight: bold;
+}
+
+#contactForm {
+
+    background: white;
+}
+
+.form-control:focus {
+
+    box-shadow: 0 0 10px rgba(13,110,253,.4);
+}
+/* QUOTE SECTION */
+
+.quote-section {
+
+    background: #f8f9fa;
+}
+
+.quote-box {
+
+    max-width: 800px;
+
+    margin: auto;
+
+    background: white;
+
+    padding: 40px;
+
+    border-radius: 20px;
+
+    box-shadow: 0 5px 20px rgba(0,0,0,.1);
+}
+
+.quote-box p {
+
+    font-size: 1.4rem;
+
+    font-style: italic;
+}
+
+.quote-box h5 {
+
+    margin-top: 20px;
+
+    color: #0d6efd;
+}
+.social-icons {
+    margin-top: 10px;
+}
+
+/* MAIN BUTTON STYLE (CIRCLES) */
+.social-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 45px;
+    height: 45px;
+
+    border-radius: 50%;
+
+    margin: 0 8px;
+
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    transition: 0.3s ease;
+
+    text-decoration: none;
+    background: transparent; /* 🔥 removes grey/white background */
+}
+
+/* ICON SIZE INSIDE */
+.social-icons img {
+    width: 22px;
+    height: 22px;
+}
+
+/* HOVER EFFECT (INSTAGRAM STYLE FEEL) */
+.social-icons a:hover {
+    transform: scale(1.15);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+
+/* =========================
+   MODERN NGO BUTTONS
+   ========================= */
+
+/* Base animation for all buttons */
+.btn-donate,
+.btn-volunteer,
+.btn-contact {
+    border: none !important;
+    padding: 12px 26px;
+    border-radius: 50px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Smooth hover lift effect */
+.btn-donate:hover,
+.btn-volunteer:hover,
+.btn-contact:hover {
+    transform: translateY(-4px);
+}
+
+/* =========================
+   DONATE BUTTON (ORANGE)
+   ========================= */
+.btn-donate {
+    background: linear-gradient(135deg, #ff7a45, #e76b43);
+    color: white !important;
+    box-shadow: 0 6px 15px rgba(231, 107, 67, 0.35);
+}
+
+.btn-donate:hover {
+    box-shadow: 0 10px 25px rgba(231, 107, 67, 0.55);
+}
+
+/* glow effect */
+.btn-donate::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.25);
+    transition: 0.5s;
+}
+
+.btn-donate:hover::after {
+    left: 100%;
+}
+
+/* =========================
+   VOLUNTEER BUTTON (BLUE)
+   ========================= */
+.btn-volunteer {
+    background: linear-gradient(135deg, #5bb8f0, #51a5da);
+    color: white !important;
+    box-shadow: 0 6px 15px rgba(81, 165, 218, 0.35);
+}
+
+.btn-volunteer:hover {
+    box-shadow: 0 10px 25px rgba(81, 165, 218, 0.55);
+}
+
+.btn-volunteer::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.25);
+    transition: 0.5s;
+}
+
+.btn-volunteer:hover::after {
+    left: 100%;
+}
+
+/* =========================
+   CONTACT BUTTON (GOLD)
+   ========================= */
+.btn-contact {
+    background: linear-gradient(135deg, #ffd35a, #f6cb44);
+    color: #1d1d1d !important;
+    box-shadow: 0 6px 15px rgba(246, 203, 68, 0.35);
+}
+
+.btn-contact:hover {
+    box-shadow: 0 10px 25px rgba(246, 203, 68, 0.55);
+}
+
+.btn-contact::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.25);
+    transition: 0.5s;
+}
+
+.btn-contact:hover::after {
+    left: 100%;
+}
+.announcement-track {
+    display: inline-block;
+    white-space: nowrap;
+    padding-left: 100%;
+    animation: slideLeft 10s linear infinite;
+    will-change: transform;
+}
+
+@keyframes slideLeft {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+/* Force all impact icons to match the volunteer button blue exactly */
+.card-body .fa-solid,
+.card-body i {
+    color: #51a5da !important;
+    margin-bottom: 15px;
+}
+/* FORCE ABOUT PAGE CORE VALUE ICONS TO MATCH VOLUNTEER BLUE */
+.value-card i,
+.value-card .fa-solid,
+.value-card .fa-handshake,
+.value-card .fa-users {
+    color: #51a5da !important;
+}
+.payment-card {
+
+    border: none;
+    border-radius: 15px;
+
+    transition: all 0.3s ease;
+
+    cursor: pointer;
+}
+
+.payment-card:hover {
+
+    transform: translateY(-8px);
+
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.payment-card i {
+
+    color: #2b6cb0;
+}
+.payment-option{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    border:1px solid #dee2e6;
+    border-radius:12px;
+    padding:15px 20px;
+    margin-bottom:12px;
+    cursor:pointer;
+    transition:0.3s;
+    background:#fff;
+}
+
+.payment-option:hover{
+    border-color:#ff6b35;
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+}
+
+.payment-option input{
+    margin-right:15px;
+    transform:scale(1.2);
+}
+
+.payment-info{
+    flex:1;
+    margin-left:10px;
+}
+
+.payment-info strong{
+    display:block;
+    font-size:16px;
+}
+
+.payment-info small{
+    color:#6c757d;
+}
+
+.payment-logo{
+    height:35px;
+    object-fit:contain;
+}
+
+.payment-logo-small{
+    height:28px;
+    margin-left:8px;
+}
+
+.card-logos{
+    display:flex;
+    align-items:center;
+}
+
+.payment-option:has(input:checked) {
+    border: 2px solid #51a5da;
+    background: #f0f8ff;
+    transform: scale(1.02);
+}
