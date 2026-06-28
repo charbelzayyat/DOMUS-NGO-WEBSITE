@@ -17,6 +17,9 @@ class DonationModal {
         
         this.amountSection =
             document.getElementById("amountSection");
+        
+        this.receiptSection =
+            document.getElementById("receiptSection");
 
         this.donateForm =
             document.getElementById("donateForm");
@@ -43,10 +46,34 @@ class DonationModal {
     addDonationEvents() {
 
         this.donationType.addEventListener(
-            "change",
-            () => this.showOptions()
-        );
-    }
+    "change",
+    () => this.showOptions()
+);
+
+document.querySelectorAll(
+    'input[name="paymentMethod"]'
+).forEach(radio => {
+
+    radio.addEventListener("change", () => {
+
+        if (
+            radio.value === "omt" ||
+            radio.value === "whish"
+        ) {
+
+            this.receiptSection.style.display =
+                "block";
+        }
+
+        else {
+
+            this.receiptSection.style.display =
+                "none";
+        }
+    });
+
+});
+}
 
     showOptions() {
 
@@ -60,6 +87,9 @@ class DonationModal {
 
         this.amountSection.style.display =
             "block";
+
+        this.receiptSection.style.display =
+            "none";
 
         this.uploadSection.style.display =
             "none";
@@ -77,6 +107,9 @@ class DonationModal {
         this.amountSection.style.display =
             "none";
 
+        this.receiptSection.style.display =
+            "none";
+
         this.uploadSection.style.display =
             "block";
     }
@@ -89,11 +122,13 @@ class DonationModal {
         this.amountSection.style.display =
             "none";
 
+        this.receiptSection.style.display =
+            "none";
+
         this.uploadSection.style.display =
             "none";
     }
 }
-
     addDonateSubmitEvent() {
 
     this.donateForm.addEventListener(
