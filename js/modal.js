@@ -2,6 +2,10 @@ const DOMUS_CONTACT = {
     phone: "+96170970707",
     paypalEmail: "info@domuslb.com"
 };
+const API_URL =
+    window.location.hostname === "localhost"
+        ? "http://localhost:5000"
+        : "https://domus-backend.onrender.com";
 class DonationModal {
 
     constructor() {
@@ -129,64 +133,113 @@ document.querySelectorAll(
             "none";
     }
 }
-    addDonateSubmitEvent() {
+addDonateSubmitEvent() {
 
     this.donateForm.addEventListener(
         "submit",
         (event) => {
 
             event.preventDefault();
-            console.log("Submit clicked");
 
             const paymentMethod =
-                document.querySelector('input[name="paymentMethod"]:checked')?.value;
-
-            console.log(paymentMethod);
+                document.querySelector(
+                    'input[name="paymentMethod"]:checked'
+                )?.value;
 
             const amount =
-                document.querySelector("#amountSection input")?.value;
-            console.log(amount);
+                document.querySelector(
+                    "#amountSection input"
+                )?.value;
 
             if (!paymentMethod) {
                 alert("Please select a payment method");
                 return;
             }
 
-            let message = "";
+            // Receipt required for OMT and Whish
+            if (
+                (paymentMethod === "omt" ||
+                 paymentMethod === "whish")
+                &&
+                !document.getElementById("receipt").files.length
+            ) {
 
-            switch (paymentMethod) {
+                alert(
+                    "Please upload your transfer receipt."
+                );
 
-                case "omt":
-                    message =
-                        `Please send ${amount || "your donation"} via OMT to ${DOMUS_CONTACT.phone}`;
-                    break;
-
-                case "whish":
-                    message =
-                        `Please send ${amount || "your donation"} via Whish to ${DOMUS_CONTACT.phone}`;
-                    break;
-
-                case "paypal":
-                    message =
-                        `Please send ${amount || "your donation"} via PayPal to ${DOMUS_CONTACT.paypalEmail}`;
-                    break;
-
-                case "card":
-                    message =
-                        `Card payment will be processed securely (demo mode).`;
-                    break;
+                return;
             }
 
-            alert(message);
+            const formData = new FormData();
 
-            this.donateForm.reset();
+            formData.append(
+                "name",
+                document.getElementById("donorName").value
+            );
 
-            this.moneyOptions.style.display = "none";
-            this.amountSection.style.display = "none";
-            this.uploadSection.style.display = "none";
-        }
-    );
-}
+            formData.append(
+                "email",
+                document.getElementById("donorEmail").value
+            );
+
+            formData.append(
+                "message",
+                document.getElementById("message").value
+            );
+
+            formData.append(
+                "donationType",
+                document.getElementById("donationType").value
+            );
+
+            formData.append(
+                "paymentMethod",
+                paymentMethod
+            );
+
+            formData.append(
+                "amount",
+                amount
+            );
+
+            const receiptFile =
+                document.getElementById("receipt").files[0];
+
+            if (receiptFile) {
+
+                formData.append(
+                    "receipt",
+                    receiptFile
+                );
+            }
+
+            fetch(`${API_URL}/api/donate`, {
+    method: "POST",
+    body: formData
+})
+.then(async (res) => {
+    const data = await res.json();
+
+    if (!res.ok) {
+        throw new Error(data.message);
+    }
+
+    alert(data.message); // ONLY backend success message
+    this.donateForm.reset();
+})
+.catch((error) => {
+    console.error("FETCH ERROR:", error);
+    alert("Donation failed. Please try again.");
+});
+
+} 
+
+    ); 
+
+} 
+
+
 
     addVolunteerSubmitEvent() {
 
