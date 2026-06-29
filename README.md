@@ -89,13 +89,16 @@ Upgraded the structural donation workflow from a simple conceptual mock dialog i
 ### AI Tools Used
 * ChatGPT (OpenAI)
 * Gemini (Google)
+The course instructor recommended using Claude Code. However, Claude Code requires a paid subscription plan that I could not afford. Therefore, this project was developed using only the free versions of ChatGPT and Google Gemini, without any paid AI subscription or upgrade plan.
 
 ### How AI Was Used
 AI assistance was utilized across structural architectural optimization and deployment debugging:
 * Designing class-based modular front-end code layout rules.
 * Structuring conditional production deployment targets to toggle local/live base URLs (`window.location.hostname === "localhost"`).
 * Debugging asynchronous payload formatting errors (`Unexpected token '<'`) caused by directory anomalies on remote hosts.
-
+* Assisting with deployment troubleshooting on Vercel, Render, and MongoDB Atlas.
+* Improving user interface interactions, modal behavior, and form validation logic.
+* Generating suggestions for improving responsiveness, accessibility, and overall user experience.
 
 ### Example Prompts
 
