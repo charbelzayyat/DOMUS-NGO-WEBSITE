@@ -1,3 +1,137 @@
+/*const DOMUS_CONTACT = {
+    phone: "+96170970707",
+    paypalEmail: "info@domuslb.com"
+};
+
+const API_URL = window.location.hostname === "localhost"
+    ? "http://localhost:5000"
+    : "https://domus-ngo-website.onrender.com";
+
+class DonationModal {
+
+    constructor() {
+
+        // Donation
+        this.donationType = document.getElementById("donationType");
+        this.moneyOptions = document.getElementById("moneyOptions");
+        this.uploadSection = document.getElementById("uploadSection");
+        this.amountSection = document.getElementById("amountSection");
+        this.receiptSection = document.getElementById("receiptSection");
+        this.donateForm = document.getElementById("donateForm");
+
+        // Volunteer
+        this.volunteerForm = null;
+
+        if (this.donationType) this.addDonationEvents();
+        if (this.donateForm) this.addDonateSubmitEvent();
+
+        this.initVolunteerWhenReady();
+    }
+
+    /* ================= DONATION ================= */
+
+    /*addDonationEvents() {
+        this.donationType.addEventListener("change", () => this.showOptions());
+
+        document.addEventListener("change", (e) => {
+            if (e.target.name === "paymentMethod") {
+                this.updateReceiptSection(e.target.value);
+            }
+        });
+    }
+
+    showOptions() {
+        const value = this.donationType.value;
+
+        if (this.receiptSection) {
+            this.receiptSection.style.display = "none";
+            this.receiptSection.innerHTML = "";
+        }
+
+        if (value === "money") {
+            this.moneyOptions.style.display = "block";
+            this.amountSection.style.display = "block";
+            this.uploadSection.style.display = "none";
+        } else if (["food", "clothes", "gifts"].includes(value)) {
+            this.moneyOptions.style.display = "none";
+            this.amountSection.style.display = "none";
+            this.uploadSection.style.display = "block";
+        } else {
+            this.moneyOptions.style.display = "none";
+            this.amountSection.style.display = "none";
+            this.uploadSection.style.display = "none";
+        }
+    }
+
+    updateReceiptSection(method) {
+        if (!this.receiptSection) return;
+
+        this.receiptSection.style.display = "block";
+
+        this.receiptSection.innerHTML = `
+            <div class="alert alert-info">
+                Payment method: ${method}
+            </div>
+        `;
+    }
+
+    addDonateSubmitEvent() {
+        this.donateForm.addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const formData = new FormData(this.donateForm);
+
+            const res = await fetch(`${API_URL}/api/donate`, {
+                method: "POST",
+                body: formData
+            });
+
+            const data = await res.json();
+
+            if (data.success) {
+                alert("Thank you for donating ❤️");
+                this.donateForm.reset();
+                this.showOptions();
+            } else {
+                alert(data.message);
+            }
+        });
+    }
+
+    /* ================= VOLUNTEER ================= */
+
+    /*initVolunteerWhenReady() {
+        const check = setInterval(() => {
+            const form = document.getElementById("volunteerForm");
+
+            if (form) {
+                clearInterval(check);
+                this.volunteerForm = form;
+                this.addVolunteerSubmitEvent();
+            }
+        }, 300);
+    }
+
+    addVolunteerSubmitEvent() {
+    this.volunteerForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        // FRONTEND ONLY RESPONSE
+        alert("Thank you for joining DOMUS ❤️ We will contact you soon.");
+
+        this.volunteerForm.reset();
+
+        const modalEl = document.getElementById("volunteerModal");
+        const modal = bootstrap.Modal.getOrCreateInstance(modalEl);
+        modal.hide();
+    });
+}
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    new DonationModal();
+});
+*/
 const DOMUS_CONTACT = {
     phone: "+96170970707",
     paypalEmail: "info@domuslb.com"

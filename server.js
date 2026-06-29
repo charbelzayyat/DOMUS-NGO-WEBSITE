@@ -2,56 +2,45 @@ require("dotenv").config();
 const fs = require("fs");
 const path = require("path");
 
-// Automatically create the uploads directory if it doesn't exist
-const uploadDir = path.join(__dirname, "uploads");
-if (!fs.existsSync(uploadDir)) {
-    fs.mkdirSync(uploadDir, { recursive: true });
-}
-
 const express = require("express");
 const cors = require("cors");
 const multer = require("multer");
 const mongoose = require("mongoose");
+
 const Donation = require("./models/Donation");
 
 const app = express();
 
 /* ========================
-   DATABASE CONNECTION
+   UPLOADS FOLDER
+======================== */
+const uploadDir = path.join(__dirname, "uploads");
+if (!fs.existsSync(uploadDir)) {
+    fs.mkdirSync(uploadDir, { recursive: true });
+}
+
+/* ========================
+   DB CONNECTION
 ======================== */
 mongoose.connect(process.env.MONGO_URI)
-.then(() => {
-    console.log("✅ MongoDB Connected");
-})
-.catch((error) => {
-    console.log("❌ MongoDB Error:", error);
-});
+.then(() => console.log("✅ MongoDB Connected"))
+.catch(err => console.log("❌ MongoDB Error:", err));
 
 /* ========================
    MIDDLEWARE
 ======================== */
-app.use(cors({
-    origin: "*"
-}));
-
+app.use(cors({ origin: "*" }));
 app.use(express.json());
-
-// Make uploads accessible
 app.use("/uploads", express.static("uploads"));
 
 /* ========================
-   MULTER CONFIG (SECURED)
+   MULTER CONFIG
 ======================== */
 const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, "uploads/");
-    },
-    filename: function (req, file, cb) {
-        cb(null, Date.now() + "-" + file.originalname);
-    }
+    destination: (req, file, cb) => cb(null, "uploads/"),
+    filename: (req, file, cb) => cb(null, Date.now() + "-" + file.originalname)
 });
 
-// ✅ FILE FILTER (IMPORTANT FOR MARKS)
 const fileFilter = (req, file, cb) => {
     if (
         file.mimetype === "image/jpeg" ||
@@ -69,56 +58,41 @@ const upload = multer({ storage, fileFilter });
 /* ========================
    DONATION ROUTE
 ======================== */
-app.post(
-    "/api/donate",
-    upload.single("receipt"),
-    async (req, res) => {
-        try {
+app.post("/api/donate", upload.single("receipt"), async (req, res) => {
+    try {
 
-            console.log("===== NEW DONATION =====");
-            console.log("Form Data:", req.body);
-
-            // ✅ VALIDATION (VERY IMPORTANT FOR GRADING)
-            if (!req.body.name || !req.body.email || !req.body.donationType) {
-                return res.status(400).json({
-                    success: false,
-                    message: "Missing required fields"
-                });
-            }
-
-            if (req.file) {
-                console.log("Receipt uploaded:", req.file.filename);
-            }
-
-            const newDonation = new Donation({
-                name: req.body.name,
-                email: req.body.email,
-                message: req.body.message,
-                donationType: req.body.donationType,
-                paymentMethod: req.body.paymentMethod,
-                amount: req.body.amount || "0",
-                receipt: req.file ? req.file.filename : ""
-            });
-
-            await newDonation.save();
-
-            console.log("💾 Donation saved successfully");
-
-            res.json({
-                success: true,
-                message: "Thank you for donating ❤️"
-            });
-
-        } catch (error) {
-            console.error("❌ Database Save Error:", error);
-
-            res.status(500).json({
+        if (!req.body.name || !req.body.email || !req.body.donationType) {
+            return res.status(400).json({
                 success: false,
-                message: "Something went wrong saving the donation details."
+                message: "Missing required fields"
             });
         }
+
+        const newDonation = new Donation({
+            name: req.body.name,
+            email: req.body.email,
+            message: req.body.message,
+            donationType: req.body.donationType,
+            paymentMethod: req.body.paymentMethod || "physical",
+            amount: req.body.amount || "0",
+            receipt: req.file ? req.file.filename : ""
+        });
+
+        await newDonation.save();
+
+        res.json({
+            success: true,
+            message: "Thank you for donating ❤️"
+        });
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({
+            success: false,
+            message: "Server error"
+        });
     }
-);
+});
 
 /* ========================
    TEST ROUTE
@@ -130,7 +104,7 @@ app.get("/", (req, res) => {
 /* ========================
    START SERVER
 ======================== */
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
