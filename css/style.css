@@ -626,22 +626,30 @@ body {
 .btn-contact:hover::after {
     left: 100%;
 }
+/* The container must hide anything that slides outside its boundaries */
 .announcement {
     background: linear-gradient(90deg, var(--secondary), var(--accent));
     color: #1d1d1d;
-    text-align: center;
-    padding: 10px;
+    padding: 10px 0; /* Changed padding */
     font-weight: bold;
-    letter-spacing: 0.5px;
-    overflow: hidden; /* ADD THIS LINE */
+    overflow: hidden; /* This stops the horizontal scrollbar */
+    width: 100%;
+}
+
+/* The track holds the text and handles the movement */
+.announcement-track {
+    display: inline-block;
+    white-space: nowrap;
+    padding-left: 100%; /* Restore this to start the text off-screen right */
+    animation: slideLeft 10s linear infinite; /* Increased time for smoother speed */
 }
 
 @keyframes slideLeft {
     0% {
-        transform: translateX(0%);
+        transform: translateX(0); /* Start fully off-screen right */
     }
     100% {
-        transform: translateX(-100%);
+        transform: translateX(-100%); /* End fully off-screen left */
     }
 }
 /* Force all impact icons to match the volunteer button blue exactly */
