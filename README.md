@@ -89,7 +89,7 @@ Upgraded the structural donation workflow from a simple conceptual mock dialog i
 ### AI Tools Used
 * ChatGPT (OpenAI)
 * Gemini (Google)
-The course instructor recommended using Claude Code. However, Claude Code requires a paid subscription plan that I could not afford. Therefore, this project was developed using only the free versions of ChatGPT and Google Gemini, without any paid AI subscription or upgrade plan.
+> The course instructor recommended using Claude Code. However, Claude Code requires a paid subscription plan that I could not afford. Therefore, this project was developed using only the free versions of ChatGPT and Google Gemini, without any paid AI subscription or upgrade plan.
 
 ### How AI Was Used
 AI assistance was utilized across structural architectural optimization and deployment debugging:
