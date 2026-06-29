@@ -5,7 +5,7 @@ const DOMUS_CONTACT = {
 const API_URL =
     window.location.hostname === "localhost"
         ? "http://localhost:5000"
-        : "https://domus-backend.onrender.com";
+        : "https://domus-ngo-website.onrender.com";
 class DonationModal {
 
     constructor() {
