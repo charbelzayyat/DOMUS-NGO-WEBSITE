@@ -8,14 +8,16 @@ The DOMUS NGO Website is a fully responsive, full-stack humanitarian web applica
 
 Originally engineered as a static front-end application, the platform has been upgraded into a robust **Full-Stack MERN-edge application**. It utilizes a decoupled architecture featuring a live Node.js api backend to securely process, validate, and store donor information alongside operational transactional payment receipts (OMT/Whish).
 
+
 The platform provides users with an interactive experience to:
 * Explore humanitarian activities and events.
 * Learn about the DOMUS mission and values.
 * Submit volunteer applications.
 * Send messages through a validated contact form.
 * Receive inspirational quotes dynamically via API integration.
-* Securely process and log donation transactions with manual payment receipt uploads.
-
+* Securely process and log donation transactions with manual payment receipt uploads (OMT/Whish).
+* Interact with simulated checkout environments and sandbox workflows for digital money payment methods (Credit Card/PayPal).
+> ⚠️ **Scope & Security Notice:** All online payment interfaces (Credit/Debit Card and PayPal) integrated within this application function strictly as UI/UX frontend mock simulations. This repository does not process, capture, or store real financial data or live credit card credentials.
 
 ## Full-Stack Architecture Workflow
 The application is split into a completely modern, distributed full-stack pipeline:
@@ -55,9 +57,9 @@ This enhances user experience by ensuring data correctness before submission and
 ## Additional Feature (Bonus Enhancement)
 Upgraded the structural donation workflow from a simple conceptual mock dialog into a completely operational, multi-tier **Production Donation Pipeline**:
 * **Dynamic Gateway Selection:** Dynamically monitors chosen payment gateways (OMT, Whish, PayPal, Credit Card).
+* **Interactive Sandbox UI:** Toggles a fully simulated credit/debit card gateway wrapper inside the modal DOM when online card methods are selected to model real-world ecommerce workflows.
 * **Conditional Media Demands:** Conditionals dynamically alter form requirements, demanding explicit transaction receipt binary uploads for local clearing verification if OMT or Whish is chosen.
-* **Cloud Database Persistence:** Persists actual form records across remote database nodes, logging success tracking tracking seamlessly onto database schemas.
-
+* **Cloud Database Persistence:** Persists actual form records across remote database nodes, logging success tracking seamlessly onto database schemas.
 
 
 ## Technologies Used
@@ -100,7 +102,6 @@ AI assistance was utilized across structural architectural optimization and depl
 1. "I want to replace the footer social media icons with real official logos for WhatsApp, Instagram, and YouTube. The icons should be clickable and redirect users to the correct official platforms instead of placeholders."
 
 2. "Improve all website contact and social media integration:
-
 * Connect Instagram icon to the official DOMUS Instagram page
 * Connect YouTube directly to the official channel
 * Replace email with the official company email (info@domuslb.com)
@@ -110,14 +111,11 @@ AI assistance was utilized across structural architectural optimization and depl
 * Replace static donation/contact behavior with a dynamic modal form collecting name, email, donation amount, and payment method with validation"
 
 3. "Improve the NGO website donation and volunteer system to make it more interactive and realistic.
-
 For the volunteer registration form, instead of a simple confirmation message, create a more engaging experience such as a personalized thank-you message, animated success feedback, or a confirmation popup that encourages users to stay involved with the NGO.
-
 For the donation system, upgrade it into a more realistic multi-option flow:
-
 - If the user selects money donation, allow them to choose a payment method such as Whish, OMT, PayPal, or credit card transfer, and display clear instructions or simulated secure payment steps.
 - If the user selects physical donations (food, clothes, or gifts), allow them to upload or view example images of acceptable items and guide them through what can be donated.
-
 The goal is to make the system feel like a real NGO platform with an interactive and user-friendly donation experience instead of a simple static form."
+
 ## Screenshots
 Screenshots for desktop, tablet, and mobile views are included in the `screenshots` folder.
