@@ -1,87 +1,99 @@
 # DOMUS NGO Website
 
 ## Student Name
-
-Charbel Zayyat
+**Charbel Zayyat**
 
 ## Project Description
+The DOMUS NGO Website is a fully responsive, full-stack humanitarian web application designed to represent a fictional NGO that supports community aid, volunteering, and donations. 
 
-The DOMUS NGO Website is a fully responsive humanitarian web application designed to represent a fictional NGO that supports community aid, volunteering, and donations.
+Originally engineered as a static front-end application, the platform has been upgraded into a robust **Full-Stack MERN-edge application**. It utilizes a decoupled architecture featuring a live Node.js api backend to securely process, validate, and store donor information alongside operational transactional payment receipts (OMT/Whish).
 
 The platform provides users with an interactive experience to:
+* Explore humanitarian activities and events.
+* Learn about the DOMUS mission and values.
+* Submit volunteer applications.
+* Send messages through a validated contact form.
+* Receive inspirational quotes dynamically via API integration.
+* Securely process and log donation transactions with manual payment receipt uploads.
 
-Explore humanitarian activities and events
-Learn about DOMUS mission and values
-Submit volunteer applications
-Send messages through a validated contact form
-Receive inspirational quotes dynamically via API integration
 
-The project focuses on modern front-end development using responsive design, reusable components, and ES6 object-oriented JavaScript architecture.
+## Full-Stack Architecture Workflow
+The application is split into a completely modern, distributed full-stack pipeline:
+1. **Frontend Client:** Hosted on **Vercel**, delivering optimized interfaces and handling dynamic UI state via ES6 Object-Oriented JavaScript.
+2. **Backend Engine:** A **Node.js & Express** REST API web service hosted on **Render**, capturing form payloads and intercepting multi-part binary data transfers.
+3. **Database Layer:** A managed cloud cluster hosted on **MongoDB Atlas**, handling schema enforcement and data persistence.
+
+
 ## Features
+* **Full-Stack Form Integration:** Upgraded static client forms to pipeline transactional data to a live database cluster endpoint.
+* **Responsive Layout Architecture:** Adaptive interfaces catering seamlessly to desktop, tablet, and mobile viewports.
+* **Real-Time Input Validation:** Custom interactive contact forms featuring instant UI state response validation.
+* **Multi-Part File Interception:** Secure binary data pipeline mapping to accept physical image transfers or digital document records.
+* **Asynchronous Front-End API Integration:** Third-party REST API mapping with robust catch-all safety fallbacks.
+* **Intersection Observer Elements:** Scroll-aware active statistic counter monitors optimizing user attention spans.
+* **Embedded Multimedia Content:** Integrated YouTube presentation widgets directly into client views.
 
-* Responsive design for desktop, tablet, and mobile devices.
-* Multi-page website (Home, About, Activities, Contact).
-* Real-time contact form validation.
-* Donation and volunteer registration forms.
-* Dynamic inspirational quotes fetched from an external API.
-* Search and filtering functionality for activities.
-* Interactive statistics counter animation.
-* Embedded multimedia content (YouTube integration).
 
-## API Used
+## API & Database Integration
 
-* API Ninjas Quotes API
+### 1. Front-End API: API Ninjas Quotes API
+* **Type:** REST API
+* **Usage:** Dynamically displays inspirational quotes on the homepage with an explicit fallback mechanism to predefined local fallback arrays upon structural network dropping.
 
-The API is used to dynamically display inspirational quotes on the homepage.
+### 2. Back-End Engine: MongoDB Atlas & Express Endpoints
+* **Database Driver:** Mongoose ODM
+* **Core API Endpoint:** `POST /api/donate`
+* **File Upload Interceptor:** Multer middleware configuration enforcing structural validation parameters (`.jpg`, `.png`, `.pdf`).
 
-* Type: REST API
-* Authentication: Requires API key in request headers
-* Response: JSON containing quote and author
-
-If the API fails, a fallback system displays predefined DOMUS inspirational quotes.
 
 ## Custom Requirement
-
 The custom UI requirement implemented is a fully interactive contact form with styled inputs and real-time validation using JavaScript ES6 classes. The form validates user input dynamically while typing and provides instant feedback without requiring form submission.
 
 This enhances user experience by ensuring data correctness before submission and improving usability.
 
+
 ## Additional Feature (Bonus Enhancement)
+Upgraded the structural donation workflow from a simple conceptual mock dialog into a completely operational, multi-tier **Production Donation Pipeline**:
+* **Dynamic Gateway Selection:** Dynamically monitors chosen payment gateways (OMT, Whish, PayPal, Credit Card).
+* **Conditional Media Demands:** Conditionals dynamically alter form requirements, demanding explicit transaction receipt binary uploads for local clearing verification if OMT or Whish is chosen.
+* **Cloud Database Persistence:** Persists actual form records across remote database nodes, logging success tracking tracking seamlessly onto database schemas.
 
-The project also includes an enhanced donation modal system as an additional feature. This is not part of the official custom requirement but was implemented to improve user experience.
 
-The donation modal allows users to:
-- Enter personal information (name, email)
-- Select donation type and payment method
-- Specify donation amount
-- Submit information through an interactive popup interface
-
-This feature improves the realism of the NGO platform by simulating a real-world donation workflow.
 
 ## Technologies Used
+* **Frontend:** HTML5, CSS3, Bootstrap 5, JavaScript (ES6 Classes - Object-Oriented Architecture), Font Awesome.
+* **Backend:** Node.js, Express.js, Multer (Multi-part binary form data parser), Cors.
+* **Database & Cloud:** MongoDB Atlas, Mongoose ODM, Render (Web Service Hosting), Vercel (Frontend Deployment).
 
-* HTML5 (semantic structure)
-* CSS3 (custom styling)
-* Bootstrap 5 (responsive layout system)
-* JavaScript (ES6 Classes - Object-Oriented Architecture)
-* Font Awesome (icons)
+
+## Issues Encountered and Fixes
+
+1. **Counter Animation Early Triggering**
+   * *Fix:* Implemented an `Intersection Observer` instance to toggle animation lifecycles purely upon active viewport visibility.
+2. **Path Resolution Matrix Drops on Hosting**
+   * *Fix:* Reconfigured structural assets to follow exact relative conventions ensuring Vercel framework deployment matching.
+3. **Missing Local Storage Folders on Ephemeral Instances (Render 500 Error)**
+   * *Fix:* Standard hosting platforms omit empty folders or strip untracked directory structures. Fixed by importing native `fs` and `path` modules within `server.js` to run a programmatically checked directory verification cycle at startup, auto-generating the missing `uploads/` folder instantly if it doesn't exist.
+4. **Cross-Origin Resource Blocking (CORS Exception)**
+   * *Fix:* Integrated wildcard security policy controls via backend Cors middleware, allowing the separate Vercel client domain to safely transfer stream content to the Render API gateway.
+5. **Initial JavaScript structure not fully ES6-based**
+   * *Fix:* Refactored all logic into ES6 class-based modules for better maintainability and grading compliance.
+6. **API integration errors due to missing response validation**
+   * *Fix:* Added proper error handling and fallback quotes when API fails or returns empty responses.
+
 
 ## AI-Use Appendix
 
 ### AI Tools Used
-
 * ChatGPT (OpenAI)
-* Gemini
+* Gemini (Google)
 
 ### How AI Was Used
+AI assistance was utilized across structural architectural optimization and deployment debugging:
+* Designing class-based modular front-end code layout rules.
+* Structuring conditional production deployment targets to toggle local/live base URLs (`window.location.hostname === "localhost"`).
+* Debugging asynchronous payload formatting errors (`Unexpected token '<'`) caused by directory anomalies on remote hosts.
 
-AI assistance was used during development for:
-
-* Structuring ES6 class-based JavaScript architecture
-* Debugging form validation logic
-* Improving UI/UX design and responsiveness
-* Implementing API integration with error handling
-* Enhancing code organization and modularity
 
 ### Example Prompts
 
@@ -107,26 +119,5 @@ For the donation system, upgrade it into a more realistic multi-option flow:
 - If the user selects physical donations (food, clothes, or gifts), allow them to upload or view example images of acceptable items and guide them through what can be donated.
 
 The goal is to make the system feel like a real NGO platform with an interactive and user-friendly donation experience instead of a simple static form."
-
-### Issues Encountered and Fixes
-
-1. The counter animation started before the user scrolled to the statistics section.
-
-   * Fixed by implementing Intersection Observer to trigger the animation only when visible.
-
-2. The navigation bar colors reduced text visibility.
-
-   * Fixed by adjusting color contrast and active link styling in CSS.
-3. Incorrect file paths causing missing assets in deployment
-
-   * Fixed by correcting relative paths to images and assets for Vercel compatibility.
-4. Initial JavaScript structure not fully ES6-based
-
-   * Fixed by refactoring all logic into ES6 class-based modules for better maintainability and grading compliance.
-5. API integration errors due to missing response validation
-
-   * Fixed by adding proper error handling and fallback quotes when API fails or returns empty responses.
-
 ## Screenshots
-
 Screenshots for desktop, tablet, and mobile views are included in the `screenshots` folder.
