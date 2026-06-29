@@ -466,20 +466,22 @@
 
     </div>
 
-</div>
 <div id="receiptSection"
      style="display:none;">
 
-    <label class="form-label">
+    <!-- Added for="receipt" here to bind label to input -->
+    <label for="receipt" class="form-label">
         Upload Transfer Receipt
     </label>
 
+    <!-- Added title attribute here to resolve the missing title/placeholder error -->
     <input
         type="file"
         id="receipt"
         name="receipt"
         class="form-control"
-        accept="image/*,.pdf">
+        accept="image/*,.pdf"
+        title="Select your OMT or Whish transfer receipt file">
 
     <small class="text-muted">
         Upload your OMT or Whish transfer receipt.
