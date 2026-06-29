@@ -12,7 +12,7 @@ Originally engineered as a static front-end application, the platform has been u
 The platform provides users with an interactive experience to:
 * Explore humanitarian activities and events.
 * Learn about the DOMUS mission and values.
-* Submit volunteer applications.
+* Register as a volunteer through an interactive modal interface with personalized confirmation feedback.
 * Send messages through a validated contact form.
 * Receive inspirational quotes dynamically via API integration.
 * Securely process and log donation transactions with manual payment receipt uploads (OMT/Whish).
@@ -116,6 +116,14 @@ For the donation system, upgrade it into a more realistic multi-option flow:
 - If the user selects money donation, allow them to choose a payment method such as Whish, OMT, PayPal, or credit card transfer, and display clear instructions or simulated secure payment steps.
 - If the user selects physical donations (food, clothes, or gifts), allow them to upload or view example images of acceptable items and guide them through what can be donated.
 The goal is to make the system feel like a real NGO platform with an interactive and user-friendly donation experience instead of a simple static form."
+
+##  Project Links
+* **Frontend (Vercel):** [https://domus-ngo-website.vercel.app](https://domus-ngo-website.vercel.app)
+* **Backend API (Render):** [https://domus-ngo-website.onrender.com](https://domus-ngo-website.onrender.com)
+
+##  Deployment Information
+* **Frontend:** Hosted on Vercel, providing a fast, globally distributed user interface.
+* **Backend:** Hosted on Render, managing the Node.js/Express server and communication with the MongoDB Atlas cloud database.
 
 ## Screenshots
 Screenshots for desktop, tablet, and mobile views are included in the `screenshots` folder.
