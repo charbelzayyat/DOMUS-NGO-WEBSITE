@@ -100,6 +100,38 @@ AI assistance was utilized across structural architectural optimization and depl
 * Improving user interface interactions, modal behavior, and form validation logic.
 * Generating suggestions for improving responsiveness, accessibility, and overall user experience.
 
+## What AI Got Wrong
+
+### 1. Donation modal layout issue
+
+AI initially generated HTML for the donation modal with a missing closing `</div>` element in `index.html`. Because of this incomplete HTML structure, selecting **Food**, **Clothes**, or **Gifts** caused the **Submit Donation** button and some form elements to disappear unexpectedly.
+
+**How I found it:**
+I manually tested every donation option on the website. While the Money donation option worked correctly, switching to the other donation types caused part of the modal to disappear. I inspected the page using the browser Developer Tools and traced the problem to an unclosed `<div>` element that broke the DOM structure.
+
+**How I fixed it:**
+I corrected the HTML by adding the missing closing `</div>` tag and verified the modal structure. After fixing the HTML, the Submit Donation button remained visible for all donation types, and the dynamic form behaved correctly for Money, Food, Clothes, and Gift donations.
+
+### 2. Incorrect deployment paths
+
+AI initially suggested image paths that worked correctly during local development but resulted in **404 Not Found** errors after deploying the website to Vercel.
+
+**How I found it:**
+I opened the browser Developer Tools (F12) after deployment and noticed several 404 errors in the Console and Network tabs indicating that some images could not be loaded.
+
+**How I fixed it:**
+I reviewed all image references, corrected the relative file paths, ensured the assets were committed to the GitHub repository, and redeployed the project. After deployment, all images loaded successfully without any missing resource errors.
+
+### 3. Backend deployment issue
+
+AI initially assumed that the `uploads` folder would always exist on the hosting server. However, Render deployments start from a clean environment, so the folder was missing, causing file upload failures.
+
+**How I found it:**
+After deploying the backend, donation submissions returned server errors even though they worked correctly on my local machine. The Render logs indicated that the upload directory could not be found.
+
+**How I fixed it:**
+I modified `server.js` by using Node.js `fs` and `path` modules to check whether the `uploads` directory exists when the server starts. If it does not exist, the application automatically creates it before handling file uploads. This resolved the deployment issue.
+
 ### Example Prompts
 
 1. "I want to replace the footer social media icons with real official logos for WhatsApp, Instagram, and YouTube. The icons should be clickable and redirect users to the correct official platforms instead of placeholders."
@@ -123,6 +155,7 @@ The goal is to make the system feel like a real NGO platform with an interactive
 ##  Project Links
 * **Frontend (Vercel):** [https://domus-ngo-website.vercel.app](https://domus-ngo-website.vercel.app)
 * **Backend API (Render):** [https://domus-ngo-website.onrender.com](https://domus-ngo-website.onrender.com)
+* **GitHub Repository:** [https://github.com/charbelzayyat/DOMUS-NGO-WEBSITE.git](https://github.com/charbelzayyat/DOMUS-NGO-WEBSITE.git)
 
 ##  Deployment Information
 * **Frontend:** Hosted on Vercel, providing a fast, globally distributed user interface.
