@@ -132,7 +132,7 @@ After deploying the backend, donation submissions returned server errors even th
 **How I fixed it:**
 I modified `server.js` by using Node.js `fs` and `path` modules to check whether the `uploads` directory exists when the server starts. If it does not exist, the application automatically creates it before handling file uploads. This resolved the deployment issue.
 
-### Example Prompts
+## Example Prompts
 
 1. "I want to replace the footer social media icons with real official logos for WhatsApp, Instagram, and YouTube. The icons should be clickable and redirect users to the correct official platforms instead of placeholders."
 
